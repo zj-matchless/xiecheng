@@ -1,0 +1,523 @@
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, 'Lucida Grande', Verdana, 'Microsoft Yahei', STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    vertical-align: middle;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.search-index {
+    display: flex;
+    /* 固定定位跟父级无关，它以屏幕为准 */
+    position: fixed;
+    top: 0;
+    left: 50%;
+    /* 兼容老版本 */
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    /* 固定定位应该要有宽度 */
+    width: 100%;
+    max-width: 540px;
+    min-width: 320px;
+    height: 44px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    background-color: #f6f6f6;
+    z-index: 99;
+}
+
+.search {
+    flex: 1;
+    position: relative;
+    font-size: 12px;
+    color: #666;
+    margin: 8px 44px 10px 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 30px;
+    line-height: 26px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.search::before {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url(../images/sprite.png) no-repeat -58px -280px;
+    background-size: 104px auto;
+}
+
+.user {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 44px;
+    height: 44px;
+    color: #66bfe6;
+    font-size: 12px;
+    text-align: center;
+}
+
+.user::before {
+    content: '';
+    display: block;
+    height: 23px;
+    width: 23px;
+    background: url(../images/sprite.png) no-repeat -59px -194px;
+    background-size: 104px auto;
+    margin: 5px auto -2px;
+}
+
+
+/* 返回顶部模块 */
+
+.goBack {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    background: url(../images/back.png) no-repeat;
+    background-size: 38px 38px;
+}
+
+
+/* 焦点图模块 */
+
+.focus {
+    overflow: hidden;
+    position: relative;
+    margin-top: 44px;
+}
+
+.focus img {
+    width: 100%;
+}
+
+.focus ul {
+    width: 500%;
+    margin-left: -100%;
+}
+
+.focus ul li {
+    float: left;
+    width: 20%;
+}
+
+.focus ol {
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    margin: 0;
+}
+
+.focus ol li {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 2px;
+    background-color: #fff;
+    transition: all .2s;
+}
+
+.focus ol .current {
+    width: 15px;
+}
+
+
+/* 局部导航栏模块 */
+
+.local-nav {
+    height: 62px;
+    background-color: #fff;
+    margin: 3px 4px;
+    border-radius: 8px;
+}
+
+.local-nav ul {
+    display: flex;
+}
+
+.local-nav ul li {
+    flex: 1;
+}
+
+.local-nav-icon1 {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: 6px;
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px auto;
+}
+
+.local-nav-icon2 {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: 6px;
+    background: url(../images/localnav_bg.png) no-repeat 0 -32px;
+    background-size: 32px auto;
+}
+
+.local-nav-icon3 {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: 6px;
+    background: url(../images/localnav_bg.png) no-repeat 0 -64px;
+    background-size: 32px auto;
+}
+
+.local-nav-icon4 {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: 6px;
+    background: url(../images/localnav_bg.png) no-repeat 0 -96px;
+    background-size: 32px auto;
+}
+
+.local-nav-icon5 {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-top: 6px;
+    background: url(../images/localnav_bg.png) no-repeat 0 -128px;
+    background-size: 32px auto;
+}
+
+.local-nav ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.local-nav ul li a p {
+    color: #333;
+    margin: 0;
+    font-size: 12px;
+}
+
+nav {
+    height: 270px;
+    border-radius: 8px;
+    margin: 3px 4px;
+    overflow: hidden;
+}
+
+.nav-common {
+    display: flex;
+    height: 88px;
+    background: -webkit-linear-gradient(left, #fa5a56, #fa9a4d);
+}
+
+.nav-common:nth-child(2) {
+    margin: 3px 0;
+    background: -webkit-linear-gradient(left, #4b90ed, #53bced);
+}
+
+.nav-common:nth-child(3) {
+    background: -webkit-linear-gradient(left, #35c2a9, #6bd457);
+}
+
+.nav-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    line-height: 44px;
+}
+
+.nav-items:nth-child(2) {
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.nav-items:nth-child(1) a {
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px auto;
+}
+
+.nav-items a {
+    flex: 1;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+
+.nav-items a:last-child {
+    border-top: 1px solid #fff;
+}
+
+.subnav-entry {
+    height: 116px;
+    border-radius: 8px;
+    margin: 3px 4px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+    background-color: #fff;
+}
+
+.subnav-entry ul li {
+    float: left;
+    width: 20%;
+    height: 58px;
+    text-align: center;
+}
+
+.subnav-items1 span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 0;
+    background-size: 24px auto;
+}
+
+.subnav-items2 span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -26px;
+    background-size: 24px auto;
+}
+
+.subnav-items3 span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -56px;
+    background-size: 24px auto;
+}
+
+.subnav-items4 span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -86px;
+    background-size: 24px auto;
+}
+
+.subnav-items5 span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -114px;
+    background-size: 24px auto;
+}
+
+.subnav-items6 span {
+    display: block;
+    width: 24px;
+    height: 20px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -142px;
+    background-size: 24px auto;
+}
+
+.subnav-items7 span {
+    display: block;
+    width: 24px;
+    height: 20px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -172px;
+    background-size: 24px auto;
+}
+
+.subnav-items8 span {
+    display: block;
+    width: 24px;
+    height: 20px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -200px;
+    background-size: 24px auto;
+}
+
+.subnav-items9 span {
+    display: block;
+    width: 24px;
+    height: 20px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -224px;
+    background-size: 24px auto;
+}
+
+.subnav-items0 span {
+    display: block;
+    width: 24px;
+    height: 20px;
+    margin: 10px auto 5px;
+    background: url(../images/subnav-bg.png) no-repeat 0 -250px;
+    background-size: 24px auto;
+}
+
+a[class^='subnav-items'] p {
+    color: #333;
+    font-size: 12px;
+    margin: 0;
+}
+
+.hot {
+    height: 464px;
+    margin-top: 8px;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.hot-top {
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+
+.hot-top h2 {
+    float: left;
+    color: #ff940a;
+    font-style: italic;
+    line-height: 44px;
+    margin: 0 0 0 10px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+}
+
+.hot-top a {
+    float: right;
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 12px;
+    padding: 1px 10px;
+    margin: 10px 8px 0 0;
+    background: -webkit-linear-gradient(left, #ff4f68, #ff6bc5);
+}
+
+.hot-btn {
+    border-bottom: 1px solid #ccc;
+}
+
+.hot-btn ul {
+    margin: 0;
+    padding: 0;
+}
+
+.hot-btn ul li {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    /* border-bottom: 1px solid #ccc; */
+}
+
+.hot-btn ul li:nth-child(1) {
+    border-right: 1px solid #ccc;
+}
+
+.hot-btn ul li:nth-child(3) {
+    border-right: 1px solid #f2f2f2;
+}
+
+.hot-btn ul li img {
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.hot-btn ul li:nth-child(n+3) a {
+    height: 210px;
+}
+
+
+/* 底部部分 */
+
+footer {
+    height: 108px;
+    margin-top: 10px;
+    border-top: 1px solid #bdbdbd;
+    background-color: #fff;
+}
+
+.footer-top {
+    height: 50px;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.footer-top ul {
+    display: flex;
+}
+
+.footer-top ul li {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-top ul li span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 6px auto 2px;
+    background: url(../images/sprite.png) no-repeat -59px -154px;
+    background-size: 104px auto;
+}
+
+.footer-top ul li p {
+    color: #333;
+    font-size: 12px;
+    margin: 0;
+}
+
+.footer-btn {
+    text-align: center;
+}
+
+.footer-btn p {
+    color: #999;
+    font-size: 12px;
+    margin: 5px 0 0 0;
+}
+
+.footer-btn p i {
+    font-style: normal;
+    margin: 0 3px;
+}
+
+.jiewei {
+    margin-top: 10px;
+}
+
+.jiewei a {
+    color: #666;
+    font-size: 12px;
+}
+
+.jiewei i {
+    margin: 0 3px;
+    font-style: normal;
+}
